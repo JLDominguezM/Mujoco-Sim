@@ -8,11 +8,7 @@ data = mujoco.MjData(model)
 
 # Launch the viewer
 with mujoco.viewer.launch_passive(model, data) as viewer:
-  # Get the start time
-  start = time.time()
-  while viewer.is_running() and time.time() - start < 30:
-    # Step the simulation
-    mujoco.mj_step(model, data)
-
-    # Synchronize the viewer
-    viewer.sync()
+    while True:
+        mujoco.mj_step(model, data)
+        viewer.sync()
+        time.sleep(0)  # Adjust the sleep time for desired speed
