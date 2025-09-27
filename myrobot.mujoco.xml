@@ -30,11 +30,8 @@
     <mesh name="end_tool.stl" file="end_tool.stl" />
     <mesh name="link6.stl" file="link6.stl" />
     <mesh name="gripper.STL" file="gripper.STL" />
-    <mesh name="ZED.STL" file="ZED.STL" />
     <mesh name="right_finger.STL" file="right_finger.STL" />
     <mesh name="left_finger.STL" file="left_finger.STL" />
-    <mesh name="LIDAR.STL" file="LIDAR.STL" />
-    <mesh name="intel_realsense.STL" file="intel_realsense.STL" />
   </asset>
 
   <worldbody>
@@ -91,13 +88,6 @@
                             <inertial pos="0.00033783 -0.0065249 0.0057345" quat="1.0 0.0 0.0 0.0" mass="0.43538" diaginertia="0.00028883 0.0016861 0.0015525" />
                             <geom name="gripper_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="gripper.STL" rgba="0 0 0 0" />
                             <geom name="gripper_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="gripper.STL" />
-                            <body name="zed" pos="0 -0.095626 -0.005" quat="0.6532800341282952 -0.27059914696391785 -0.2705981529995758 -0.6532824337642575">
-                              <body name="zed_camera_link" pos="0.0 0 0.0" quat="1.0 0.0 0.0 0.0">
-                                <inertial pos="0.00022189 -2.7346E-06 1.8693E-05" quat="1.0 0.0 0.0 0.0" mass="0.230" diaginertia="0.00038053 2.3258e-05 0.00038297" />
-                                <geom name="zed_camera_link_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="ZED.STL" rgba="0 0 0 0" />
-                                <geom name="zed_camera_link_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="ZED.STL" />
-                              </body>
-                            </body>
                             <body name="right_finger" pos="-0.069 0 0.017" quat="1.0 0.0 0.0 0.0">
                               <inertial pos="-0.0042467 -4.6842E-05 0.048292" quat="1.0 0.0 0.0 0.0" mass="0.1028" diaginertia="8.1099e-05 7.2688e-05 1.8782e-05" />
                               <geom name="right_finger_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="right_finger.STL" rgba="0 0 0 0" />
@@ -117,16 +107,6 @@
               </body>
             </body>
           </body>
-        </body>
-        <body name="laser" pos="0.15026 0 0.002" quat="0.7073882691671998 0.0 0.0 0.706825181105366">
-          <inertial pos="-1.3878E-17 3.3818E-34 -0.0125" quat="1.0 0.0 0.0 0.0" mass="0.096211" diaginertia="3.4476e-05 3.4476e-05 5.8929e-05" />
-          <geom name="laser_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LIDAR.STL" rgba="0 0 0 0" />
-          <geom name="laser_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LIDAR.STL" />
-        </body>
-        <body name="intel_realsense" pos="0.140953490988428 0 0.428947355746093" quat="1.0 0.0 0.0 0.0">
-          <inertial pos="-0.000276500325472787 -3.68172093455318E-07 -6.47494519674385E-05" quat="1.0 0.0 0.0 0.0" mass="0.048201" diaginertia="2.7391e-05 3.3506e-06 2.6652e-05" />
-          <geom name="intel_realsense_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="intel_realsense.STL" rgba="0 0 0 0" />
-          <geom name="intel_realsense_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="intel_realsense.STL" />
         </body>
       </body>
     </body>
