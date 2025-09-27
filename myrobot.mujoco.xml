@@ -20,7 +20,7 @@
     <material name="Silver" rgba="0.753 0.753 0.753 1.0" />
     <material name="Blue" rgba="0.102 0.102 0.102 1" />
     <material name="default_material" rgba="0.7 0.7 0.7 1" />
-    <mesh name="base_link.STL" file="base_link.STL" />
+    <mesh name="base_link.STL" file="base_link.stl" />
     <mesh name="link_base.stl" file="link_base.stl" />
     <mesh name="link1.stl" file="link1.stl" />
     <mesh name="link2.stl" file="link2.stl" />
@@ -122,11 +122,6 @@
           <inertial pos="-1.3878E-17 3.3818E-34 -0.0125" quat="1.0 0.0 0.0 0.0" mass="0.096211" diaginertia="3.4476e-05 3.4476e-05 5.8929e-05" />
           <geom name="laser_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LIDAR.STL" rgba="0 0 0 0" />
           <geom name="laser_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LIDAR.STL" />
-        </body>
-        <body name="imu_base" pos="0.15026 0 0.002" quat="0.7068251811053735 -2.0683379423476265e-09 -5.19469606272751e-06 -0.7073882691481185">
-          <inertial pos="-1.3878E-17 3.3818E-34 -0.0125" quat="1.0 0.0 0.0 0.0" mass="0.096211" diaginertia="3.4476e-05 3.4476e-05 5.8929e-05" />
-          <geom name="imu_base_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" rgba="0 0 0 0" />
-          <geom name="imu_base_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" />
         </body>
         <body name="intel_realsense" pos="0.140953490988428 0 0.428947355746093" quat="1.0 0.0 0.0 0.0">
           <inertial pos="-0.000276500325472787 -3.68172093455318E-07 -6.47494519674385E-05" quat="1.0 0.0 0.0 0.0" mass="0.048201" diaginertia="2.7391e-05 3.3506e-06 2.6652e-05" />
