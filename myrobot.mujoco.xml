@@ -1,0 +1,155 @@
+<mujoco model="FRIDA">
+  <default>
+    <joint limited="true" damping="0.01" armature="0.01" frictionloss="0.01" />
+    <geom condim="4" contype="1" conaffinity="15" friction="0.9 0.2 0.2" solref="0.001 2" />
+    <motor ctrllimited="true" />
+    <equality solref="0.001 2" />
+    <default class="visualgeom">
+      <geom material="visualgeom" condim="1" contype="0" conaffinity="0" />
+    </default>
+  </default>
+
+  <compiler angle="radian" meshdir="meshes" eulerseq="zyx" autolimits="true" />
+
+  <asset>
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100" height="100" />
+    <material name="matplane" reflectance="0." texture="texplane" texrepeat="1 1" texuniform="true" />
+    <material name="Black" rgba="0.0 0.0 0.0 1.0" />
+    <material name="Red" rgba="0.8 0.0 0.0 1.0" />
+    <material name="White" rgba="1.0 1.0 1.0 1.0" />
+    <material name="Silver" rgba="0.753 0.753 0.753 1.0" />
+    <material name="Blue" rgba="0.102 0.102 0.102 1" />
+    <material name="default_material" rgba="0.7 0.7 0.7 1" />
+    <mesh name="base_link.STL" file="base_link.STL" />
+    <mesh name="link_base.stl" file="link_base.stl" />
+    <mesh name="link1.stl" file="link1.stl" />
+    <mesh name="link2.stl" file="link2.stl" />
+    <mesh name="link3.stl" file="link3.stl" />
+    <mesh name="link4.stl" file="link4.stl" />
+    <mesh name="link5.stl" file="link5.stl" />
+    <mesh name="end_tool.stl" file="end_tool.stl" />
+    <mesh name="link6.stl" file="link6.stl" />
+    <mesh name="gripper.STL" file="gripper.STL" />
+    <mesh name="ZED.STL" file="ZED.STL" />
+    <mesh name="right_finger.STL" file="right_finger.STL" />
+    <mesh name="left_finger.STL" file="left_finger.STL" />
+    <mesh name="LIDAR.STL" file="LIDAR.STL" />
+    <mesh name="intel_realsense.STL" file="intel_realsense.STL" />
+  </asset>
+
+  <worldbody>
+    <light directional="true" diffuse="0.4 0.4 0.4" specular="0.1 0.1 0.1" pos="0 0 5.0" dir="0 0 -1" castshadow="false" />
+    <light directional="true" diffuse="0.6 0.6 0.6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1" />
+    <geom name="ground" type="plane" pos="0 0 0" size="10 10 0.001" quat="1 0 0 0" material="matplane" condim="3" conaffinity="15" />
+    <body name="root" pos="0 0 -0.0" quat="1 0 0 0">
+      <freejoint name="root" />
+      <site name="root_site" pos="0 0 0" quat="1 0 0 0" />
+      <body name="base_link" pos="0 0 0" quat="1 0 0 0">
+        <inertial pos="0.031681 -0.0052694 0.10165" quat="1.0 0.0 0.0 0.0" mass="200.075" diaginertia="0.44959 0.46194 0.78515" />
+        <geom name="base_link_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="base_link.STL" rgba="0 0 0 0" />
+        <geom name="base_link_collision_1" pos=".09 -0.12 .49" quat="1.0 0.0 0.0 0.0" type="sphere" size="0.063" rgba="0 0 0 0" />
+        <geom name="base_link_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="base_link.STL" />
+        <body name="base_footprint" pos="0 0 0" quat="1.0 0.0 0.0 0.0" />
+        <body name="xarm_base" pos="0.036105613000001 0 0.441000000000001" quat="0.7073882691671998 0.0 0.0 0.706825181105366">
+          <body name="link_base" pos="0 0 0" quat="1.0 0.0 0.0 0.0">
+            <inertial pos="0.0 0.0 0.09103" quat="1.0 0.0 0.0 0.0" mass="2.7" diaginertia="0.00494875 0.00494174 0.002219" />
+            <geom name="link_base_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="link_base.stl" rgba="0 0 0 0" />
+            <geom name="link_base_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="White" type="mesh" mesh="link_base.stl" />
+            <body name="link1" pos="0 0 0.267" quat="1.0 0.0 0.0 0.0">
+              <joint name="joint1" type="hinge" range="-6.283185307179586 6.283185307179586" axis="0 0 1" />
+              <inertial pos="0.00022 0.02951 -0.0124" quat="1.0 0.0 0.0 0.0" mass="2.3814" diaginertia="0.0058562 0.0050316 0.003536652" />
+              <geom name="link1_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="link1.stl" rgba="0 0 0 0" />
+              <geom name="link1_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="White" type="mesh" mesh="link1.stl" />
+              <body name="link2" pos="0 0 0" quat="0.7071054825112363 -0.7071080798594735 0.0 0.0">
+                <joint name="joint2" type="hinge" range="-2.059 2.0944" axis="0 0 1" />
+                <inertial pos="0.03881 -0.22783 0.03496" quat="1.0 0.0 0.0 0.0" mass="2.2675" diaginertia="0.028315776 0.0058 0.0273447" />
+                <geom name="link2_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="link2.stl" rgba="0 0 0 0" />
+                <geom name="link2_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="White" type="mesh" mesh="link2.stl" />
+                <body name="link3" pos="0.0535 -0.2845 0" quat="1.0 0.0 0.0 0.0">
+                  <joint name="joint3" type="hinge" range="-3.927 0.19198" axis="0 0 1" />
+                  <inertial pos="0.07041 0.11631 0.0107" quat="1.0 0.0 0.0 0.0" mass="1.875" diaginertia="0.0063483 0.00379758 0.00595768" />
+                  <geom name="link3_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="link3.stl" rgba="0 0 0 0" />
+                  <geom name="link3_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="White" type="mesh" mesh="link3.stl" />
+                  <body name="link4" pos="0.0775 0.3425 0" quat="0.7071054825112363 -0.7071080798594735 0.0 0.0">
+                    <joint name="joint4" type="hinge" range="-6.283185307179586 6.283185307179586" axis="0 0 1" />
+                    <inertial pos="-0.00018 0.01798 -0.02291" quat="1.0 0.0 0.0 0.0" mass="1.3192" diaginertia="0.004896 0.00445694 0.00134332" />
+                    <geom name="link4_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="link4.stl" rgba="0 0 0 0" />
+                    <geom name="link4_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="White" type="mesh" mesh="link4.stl" />
+                    <body name="link5" pos="0 0 0" quat="0.7071054825112363 0.7071080798594735 0.0 0.0">
+                      <joint name="joint5" type="hinge" range="-1.69297 3.141592653589793" axis="0 0 1" />
+                      <inertial pos="0.0651 0.03096 0.00315" quat="1.0 0.0 0.0 0.0" mass="1.33854" diaginertia="0.00146378 0.00184192 0.002333524" />
+                      <geom name="link5_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="link5.stl" rgba="0 0 0 0" />
+                      <geom name="link5_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="White" type="mesh" mesh="link5.stl" />
+                      <body name="link6" pos="0.076 0.097 0" quat="0.7071054825112363 -0.7071080798594735 0.0 0.0">
+                        <joint name="joint6" type="hinge" range="-6.283185307179586 6.283185307179586" axis="0 0 1" />
+                        <inertial pos="0 -0.00677 -0.01098" quat="1.0 0.0 0.0 0.0" mass="0.17" diaginertia="9.3e-05 5.87e-05 0.000132" />
+                        <geom name="link6_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="end_tool.stl" rgba="0 0 0 0" />
+                        <geom name="link6_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="Silver" type="mesh" mesh="link6.stl" />
+                        <body name="link_eef" pos="0 0 0" quat="1.0 0.0 0.0 0.0">
+                          <body name="gripper_grasp_frame" pos="0 0 0" quat="0.923879181092213 0.0 0.0 -0.38268428076468186" />
+                          <body name="gripper" pos="0 0 0.046" quat="-0.3822256876554082 -0.0 0.0 0.9240690037526149">
+                            <inertial pos="0.00033783 -0.0065249 0.0057345" quat="1.0 0.0 0.0 0.0" mass="0.43538" diaginertia="0.00028883 0.0016861 0.0015525" />
+                            <geom name="gripper_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="gripper.STL" rgba="0 0 0 0" />
+                            <geom name="gripper_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="gripper.STL" />
+                            <body name="zed" pos="0 -0.095626 -0.005" quat="0.6532800341282952 -0.27059914696391785 -0.2705981529995758 -0.6532824337642575">
+                              <body name="zed_camera_link" pos="0.0 0 0.0" quat="1.0 0.0 0.0 0.0">
+                                <inertial pos="0.00022189 -2.7346E-06 1.8693E-05" quat="1.0 0.0 0.0 0.0" mass="0.230" diaginertia="0.00038053 2.3258e-05 0.00038297" />
+                                <geom name="zed_camera_link_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="ZED.STL" rgba="0 0 0 0" />
+                                <geom name="zed_camera_link_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="ZED.STL" />
+                              </body>
+                            </body>
+                            <body name="right_finger" pos="-0.069 0 0.017" quat="1.0 0.0 0.0 0.0">
+                              <inertial pos="-0.0042467 -4.6842E-05 0.048292" quat="1.0 0.0 0.0 0.0" mass="0.1028" diaginertia="8.1099e-05 7.2688e-05 1.8782e-05" />
+                              <geom name="right_finger_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="right_finger.STL" rgba="0 0 0 0" />
+                              <geom name="right_finger_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="right_finger.STL" />
+                            </body>
+                            <body name="left_finger" pos="0.069 0 0.017" quat="1.0 0.0 0.0 0.0">
+                              <inertial pos="0.0042467 4.6842E-05 0.048292" quat="1.0 0.0 0.0 0.0" mass="0.1028" diaginertia="8.1099e-05 7.2688e-05 1.8782e-05" />
+                              <geom name="left_finger_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="left_finger.STL" rgba="0 0 0 0" />
+                              <geom name="left_finger_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="left_finger.STL" />
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="laser" pos="0.15026 0 0.002" quat="0.7073882691671998 0.0 0.0 0.706825181105366">
+          <inertial pos="-1.3878E-17 3.3818E-34 -0.0125" quat="1.0 0.0 0.0 0.0" mass="0.096211" diaginertia="3.4476e-05 3.4476e-05 5.8929e-05" />
+          <geom name="laser_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="LIDAR.STL" rgba="0 0 0 0" />
+          <geom name="laser_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="LIDAR.STL" />
+        </body>
+        <body name="imu_base" pos="0.15026 0 0.002" quat="0.7068251811053735 -2.0683379423476265e-09 -5.19469606272751e-06 -0.7073882691481185">
+          <inertial pos="-1.3878E-17 3.3818E-34 -0.0125" quat="1.0 0.0 0.0 0.0" mass="0.096211" diaginertia="3.4476e-05 3.4476e-05 5.8929e-05" />
+          <geom name="imu_base_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" rgba="0 0 0 0" />
+          <geom name="imu_base_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" />
+        </body>
+        <body name="intel_realsense" pos="0.140953490988428 0 0.428947355746093" quat="1.0 0.0 0.0 0.0">
+          <inertial pos="-0.000276500325472787 -3.68172093455318E-07 -6.47494519674385E-05" quat="1.0 0.0 0.0 0.0" mass="0.048201" diaginertia="2.7391e-05 3.3506e-06 2.6652e-05" />
+          <geom name="intel_realsense_collision_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="intel_realsense.STL" rgba="0 0 0 0" />
+          <geom name="intel_realsense_visual_0" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="" type="mesh" mesh="intel_realsense.STL" />
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="joint1_ctrl" joint="joint1" forcerange="-50.00000000 50.00000000" forcelimited="true" ctrlrange="-6.283185307179586 6.283185307179586" ctrllimited="true" />
+    <position name="joint2_ctrl" joint="joint2" forcerange="-50.00000000 50.00000000" forcelimited="true" ctrlrange="-2.059 2.0944" ctrllimited="true" />
+    <position name="joint3_ctrl" joint="joint3" forcerange="-32.00000000 32.00000000" forcelimited="true" ctrlrange="-3.927 0.19198" ctrllimited="true" />
+    <position name="joint4_ctrl" joint="joint4" forcerange="-32.00000000 32.00000000" forcelimited="true" ctrlrange="-6.283185307179586 6.283185307179586" ctrllimited="true" />
+    <position name="joint5_ctrl" joint="joint5" forcerange="-32.00000000 32.00000000" forcelimited="true" ctrlrange="-1.69297 3.141592653589793" ctrllimited="true" />
+    <position name="joint6_ctrl" joint="joint6" forcerange="-20.00000000 20.00000000" forcelimited="true" ctrlrange="-6.283185307179586 6.283185307179586" ctrllimited="true" />
+  </actuator>
+
+  <sensor>
+    <framepos name="base_link_pos" objtype="site" objname="root_site" />
+    <framequat name="base_link_quat" objtype="site" objname="root_site" />
+    <framelinvel name="base_link_vel" objtype="site" objname="root_site" />
+    <frameangvel name="base_link_ang_vel" objtype="site" objname="root_site" />
+  </sensor>
+</mujoco>

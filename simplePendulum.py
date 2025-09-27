@@ -3,7 +3,7 @@ import mujoco.viewer
 import time
 
 # Load the model from the XML file
-model = mujoco.MjModel.from_xml_path('pendulum.xml')
+model = mujoco.MjModel.from_xml_path('myrobot.mujoco.xml')
 data = mujoco.MjData(model)
 
 # Launch the viewer
